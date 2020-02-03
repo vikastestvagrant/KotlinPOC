@@ -18,8 +18,11 @@ Automate Clear Trip ticket booking application and verify following :
 ## Project structure
 
 src/main/kotlin/entities - Entity details to hold travel information
+
 src/main/kotlin/webPages - Placeholder for Webpages and elements associated with different screens
+
 src/test/kotlin/tests - Placeholder for tests to verify functionality 
+
 src/main/resources/ - Stores config file to store common test variables 
 
 ### Steps to execute the test -
