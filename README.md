@@ -27,7 +27,7 @@ Automate Clear Trip ticket booking application and verify following :
 
 ### Steps to execute the test -
 
-'mvn clean test'
+`mvn clean test`
 
 
 
