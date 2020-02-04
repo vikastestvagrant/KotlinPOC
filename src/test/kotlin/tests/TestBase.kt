@@ -10,11 +10,10 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 
-open class TestBase {
+abstract class TestBaseTest {
 
-    lateinit var driver: WebDriver
-        private set
-    private lateinit var options: ChromeOptions
+     public lateinit var driver: WebDriver
+     public lateinit var options: ChromeOptions
 
     @BeforeTest
     fun testSetUp() {
@@ -27,18 +26,18 @@ open class TestBase {
         var baseURL = prop.getProperty("pageURL")
 
         options = ChromeOptions()
-        options.addArguments("--disable-notifications")
+        options!!.addArguments("--disable-notifications")
 
         driver = ChromeDriver(options)
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
-        driver.get(baseURL)
+        (driver as ChromeDriver).manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
+        (driver as ChromeDriver).get(baseURL)
 
     }
 
     @AfterTest
     fun driverClose() {
 
-        driver.close()
+        driver?.close()
 
     }
 

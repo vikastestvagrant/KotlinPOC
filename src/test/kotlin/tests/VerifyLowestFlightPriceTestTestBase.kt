@@ -8,7 +8,7 @@ import webPage.SelectFlightPage
 import webPage.TicketsBookingPage
 
 
-class VerifyLowestFlightPriceTest : TestBase() {
+class VerifyLowestFlightPriceTestTest : TestBaseTest() {
 
     private lateinit var ticketsBookingPage: TicketsBookingPage
     private lateinit var selectFlightPage: SelectFlightPage
