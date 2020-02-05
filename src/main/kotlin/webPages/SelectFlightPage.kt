@@ -1,5 +1,6 @@
 package webPage
 
+import com.google.common.base.CharMatcher
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait
 
 public class SelectFlightPage(private val driver: WebDriver) {
 
+
     @FindBy(xpath = ".//*[@data-sort='airline']")
     var airlineTag: By? = null
 
@@ -18,8 +20,6 @@ public class SelectFlightPage(private val driver: WebDriver) {
     @FindBy(xpath = "(//*[@id=\"BaggageBundlingTemplate\"])[1]")
     var firstTicketPriceElement: WebElement? = null
 
-//    @FindBy(xpath = "(.//*[contains(text(),'Work travel? Sign up to unlock')])[2]")
-//    var pageFullyLoadCheckElement: WebElement? = null
 
     @FindBy(xpath = "(.//button[contains(text(),'Book')])[3]")
     var bookFlightElement: WebElement? = null
@@ -29,17 +29,13 @@ public class SelectFlightPage(private val driver: WebDriver) {
         PageFactory.initElements(driver, this)
     }
 
-
-//    fun waitForFlightsToLoad() {
-//
-//        WebDriverWait(driver, 10)
-//            .until(ExpectedConditions.textToBePresentInElement(pageFullyLoadCheckElement, "Work travel"))
-//
-//    }
-
     fun isTheTopMostPriceLowest(): Boolean {
 
         println("Lowest price as per Cleartrip " + firstTicketPriceElement?.text)
+
+        var firstTicketPrice = CharMatcher.inRange('0', '9').retainFrom(firstTicketPriceElement?.text)
+
+
 
         var ticketPriceList = driver.findElements(By.xpath("(//*[@id=\"BaggageBundlingTemplate\"])"))
 
@@ -51,19 +47,26 @@ public class SelectFlightPage(private val driver: WebDriver) {
         println("Here goes all ticket prices")
         println("-----------------------------------")
 
+        var lowestTicketPrice = CharMatcher.inRange('0', '9').retainFrom(firstTicketPriceElement?.text)
+        print("lowestAsPerClearTrip "+lowestTicketPrice)
+
         for (i in 0 until numOfTickets) {
 
             println()
             println(ticketPriceList.get(i).text)
 
-            listOfTickets.add(ticketPriceList.get(i).text)
+            var extractedValue =CharMatcher.inRange('0', '9').retainFrom(ticketPriceList.get(i).text)
+
+
+
+            if(extractedValue < lowestTicketPrice){
+
+                var lowestTicketPrice = extractedValue}
+
         }
 
-        var lowestPriceInSortedList = listOfTickets.min()
-        println("-----------------------------------")
-        print("Lowest price in above list $lowestPriceInSortedList")
-
-        return firstTicketPriceElement?.text.equals(lowestPriceInSortedList)
+        print("Lowest ticket price "+lowestTicketPrice)
+        return firstTicketPrice == lowestTicketPrice
 
 
     }
@@ -73,6 +76,5 @@ public class SelectFlightPage(private val driver: WebDriver) {
 
 
     }
-
 
 }

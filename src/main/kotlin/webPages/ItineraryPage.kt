@@ -16,6 +16,9 @@ public class ItineraryPage(private val driver: WebDriver) {
     @FindBy(xpath = "//*[@class=\"itinerary clearFix onwBlock\"]/h1/small[2]")
     var flightDateOnItineraryPage: WebElement? = null
 
+    @FindBy(id ="itineraryBtn")
+    var continueBookingBtnOnItineraryPage: WebElement? = null
+
     init {
         PageFactory.initElements(driver, this)
     }
@@ -61,6 +64,11 @@ public class ItineraryPage(private val driver: WebDriver) {
         return(isDateMatching && isMonthMatching && isYearMatching)
 
 
+    }
+
+    fun clickContinueBookingBtn(){
+
+        continueBookingBtnOnItineraryPage?.click()
     }
 
 

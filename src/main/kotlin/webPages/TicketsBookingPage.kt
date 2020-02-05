@@ -12,6 +12,7 @@ public class TicketsBookingPage(private val driver: WebDriver) : BasePage(driver
     @FindBy(id = "FromTag")
     var originFlightElement: WebElement? = null
 
+
     @FindBy(xpath = "((//*[@tabindex=\"-1\"])[4])")
     var originFlightSelectHighlightedElement: WebElement? = null
 
@@ -45,7 +46,7 @@ public class TicketsBookingPage(private val driver: WebDriver) : BasePage(driver
 
         click(searchFlightElement)
 
-        waitForFlightsToLoad(pageFullyLoadCheckElement)
+        waitForElementsToLoad(pageFullyLoadCheckElement,"Work travel")
 
     }
 

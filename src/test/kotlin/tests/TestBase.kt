@@ -5,12 +5,13 @@ import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeTest
+import org.testng.annotations.Test
 import java.io.FileInputStream
 import java.util.*
 import java.util.concurrent.TimeUnit
 
 
-abstract class TestBaseTest {
+abstract class TestBase {
 
      public lateinit var driver: WebDriver
      public lateinit var options: ChromeOptions
@@ -29,8 +30,8 @@ abstract class TestBaseTest {
         options!!.addArguments("--disable-notifications")
 
         driver = ChromeDriver(options)
-        (driver as ChromeDriver).manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
-        (driver as ChromeDriver).get(baseURL)
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
+        driver.get(baseURL)
 
     }
 
