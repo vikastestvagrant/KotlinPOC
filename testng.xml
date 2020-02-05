@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test thread-count="5" name="Verify Title Test">
+        <classes>
+            <class name="tests.VerifyTitleOfHomePage"></class>
+
+        </classes>
+    </test> <!-- Test -->
+
+    <test thread-count="5" name="Verify Lowest Price Test">
+        <classes>
+
+            <class name="tests.VerifyLowestFlightPriceTest"></class>
+        </classes>
+    </test> <!-- Test -->
+
+    <test thread-count="5" name="Verify Information on Itinerary Test">
+        <classes>
+
+            <class name="tests.VerifyInformationOnItineraryPageTest"></class>
+        </classes>
+    </test> <!-- Test -->
+
+    <test thread-count="5" name="Verify Traveller Name Phone number Test">
+        <classes>
+
+            <class name="tests.VerifyTravellerNamePhoneNumberTest"></class>
+        </classes>
+    </test> <!-- Test -->
+
+    <test thread-count="5" name="Verify Email test">
+        <classes>
+
+            <class name="tests.VerifyEmailTest"></class>
+        </classes>
+    </test> <!-- Test -->
+
+
+
+</suite> <!-- Suite -->
