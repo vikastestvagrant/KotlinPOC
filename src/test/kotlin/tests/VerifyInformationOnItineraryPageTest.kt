@@ -9,7 +9,7 @@ import webPage.SelectFlightPage
 import webPage.TicketsBookingPage
 
 
-class VerifyInformationOnItineraryPageTestTest : TestBaseTest() {
+class VerifyInformationOnItineraryPageTestTestBase : TestBase() {
 
     private lateinit var ticketsBookingPage: TicketsBookingPage
     private lateinit var selectFlightPage: SelectFlightPage
