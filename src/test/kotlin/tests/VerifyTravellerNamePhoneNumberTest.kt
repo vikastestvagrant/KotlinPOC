@@ -1,8 +1,8 @@
 package tests
 
 import entities.Email
-import entities.TravellerDetails
-import entities.TravellerTitleNameMobile
+import entities.TravelDetails
+import entities.Traveller
 import org.testng.Assert
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
@@ -10,7 +10,7 @@ import webPage.ItineraryPage
 import webPage.SelectFlightPage
 import webPage.TicketsBookingPage
 import webPages.EmailPage
-import webPages.TravelNameMobileDetailsPage
+import webPages.TravellerDetailsPage
 
 public class VerifyTravellerNamePhoneNumberTest: TestBase() {
 
@@ -19,7 +19,7 @@ public class VerifyTravellerNamePhoneNumberTest: TestBase() {
      lateinit var ticketsBookingPage: TicketsBookingPage
      lateinit var selectFlightPage: SelectFlightPage
      lateinit var itineraryPage: ItineraryPage
-     lateinit var travelNameMobileDetailsPage : TravelNameMobileDetailsPage
+     lateinit var travellerDetailsPage : TravellerDetailsPage
 
     @BeforeMethod
     fun setUp() {
@@ -28,16 +28,16 @@ public class VerifyTravellerNamePhoneNumberTest: TestBase() {
         ticketsBookingPage = TicketsBookingPage(driver)
         selectFlightPage = SelectFlightPage(driver)
         itineraryPage = ItineraryPage(driver)
-        travelNameMobileDetailsPage = TravelNameMobileDetailsPage(driver)
+        travellerDetailsPage = TravellerDetailsPage(driver)
 
     }
     @Test
     fun verifyTravellerDetailsTest(){
 
 
-        val travel = TravellerDetails("Bangalore", "Lucknow", "14/02/2020")
+        val travel = TravelDetails("Bangalore", "Lucknow", "14/02/2020")
         val email = Email("vikas543@gmail.com")
-        val travellerInfo = TravellerTitleNameMobile("Mr","ABC", "XYS", "0123456789")
+        val travellerInfo = Traveller("Mr","ABC", "XYS", "0123456789")
 
         ticketsBookingPage.searchFlight(travel)
 
@@ -47,11 +47,9 @@ public class VerifyTravellerNamePhoneNumberTest: TestBase() {
 
         emailPage.enterEmailAddress(email)
 
-        travelNameMobileDetailsPage.enterFirstNameLastNameMobileNum(travellerInfo)
+        travellerDetailsPage.enterTravellerDetails(travellerInfo)
 
-        var getTravelNameMobileTitleCheck = travelNameMobileDetailsPage.isTravellerInfoCorrect(travellerInfo)
-
-
+        var getTravelNameMobileTitleCheck = travellerDetailsPage.isTravellerInfoCorrect(travellerInfo)
 
         Assert.assertEquals(getTravelNameMobileTitleCheck, true, "Passenger details are not saved correctly")
 

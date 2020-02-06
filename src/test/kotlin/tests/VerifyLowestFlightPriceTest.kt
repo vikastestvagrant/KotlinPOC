@@ -1,9 +1,7 @@
 package tests
 
-import entities.TravellerDetails
+import entities.TravelDetails
 import org.testng.Assert
-import org.testng.annotations.BeforeMethod
-import org.testng.annotations.BeforeTest
 import org.testng.annotations.Test
 import webPage.SelectFlightPage
 import webPage.TicketsBookingPage
@@ -27,7 +25,7 @@ class VerifyLowestFlightPriceTest : TestBase() {
     fun verifyLowestFlightPriceIsOnTheTop() {
 
         testSetup()
-        val travel = TravellerDetails("Bangalore", "Lucknow", "14/02/2020")
+        val travel = TravelDetails("Bangalore", "Lucknow", "14/02/2020")
 
         ticketsBookingPage.searchFlight(travel)
 

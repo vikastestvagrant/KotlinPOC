@@ -1,7 +1,7 @@
 package webPages
 
 
-import entities.TravellerTitleNameMobile
+import entities.Traveller
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory
 import org.openqa.selenium.support.ui.Select
 import webPage.BasePage
 
-class TravelNameMobileDetailsPage (private val driver: WebDriver) : BasePage(driver) {
+class TravellerDetailsPage (private val driver: WebDriver) : BasePage(driver) {
 
     @FindBy(xpath ="(//*[@id=\"AdultFname1\"])[1]")
     var firstNameElement:WebElement?= null
@@ -36,9 +36,7 @@ class TravelNameMobileDetailsPage (private val driver: WebDriver) : BasePage(dri
         PageFactory.initElements(driver, this)
     }
 
-    public fun enterFirstNameLastNameMobileNum(travellerInfo: TravellerTitleNameMobile){
-
-
+    public fun enterTravellerDetails(travellerInfo: Traveller){
 
         Select(titleOfTravellerElement).selectByValue(travellerInfo.title)
 
@@ -52,7 +50,7 @@ class TravelNameMobileDetailsPage (private val driver: WebDriver) : BasePage(dri
 
     }
 
-    public fun isTravellerInfoCorrect(travellerInfo: TravellerTitleNameMobile):Boolean {
+    public fun isTravellerInfoCorrect(travellerInfo: Traveller):Boolean {
 
 
         Thread.sleep(2000)

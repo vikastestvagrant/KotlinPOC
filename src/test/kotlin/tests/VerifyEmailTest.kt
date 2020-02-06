@@ -1,7 +1,7 @@
 package tests
 
 import entities.Email
-import entities.TravellerDetails
+import entities.TravelDetails
 import org.testng.Assert
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
@@ -31,17 +31,14 @@ class VerifyEmailTest : TestBase() {
     @Test
     fun verifyEmailTest() {
 
-        val travel = TravellerDetails("Bangalore", "Lucknow", "14/02/2020")
+        val travel = TravelDetails("Bangalore", "Lucknow", "14/02/2020")
+        val email = Email("vikas543@gmail.com")
 
         ticketsBookingPage.searchFlight(travel)
 
         selectFlightPage.navigateToItineraryPageByChoosingFirstFlight()
 
         itineraryPage.clickContinueBookingBtn()
-
-
-        val email = Email("vikas543@gmail.com")
-
 
         emailPage.enterEmailAddress(email)
         var getEmailCheckFromItineraryPage = emailPage.isEmailEnteredCorrectly(email)

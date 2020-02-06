@@ -1,6 +1,6 @@
 package webPage
 
-import entities.TravellerDetails
+import entities.TravelDetails
 import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
@@ -36,7 +36,7 @@ public class TicketsBookingPage(private val driver: WebDriver) : BasePage(driver
     }
 
 
-    public fun searchFlight(travel: TravellerDetails) {
+    public fun searchFlight(travel: TravelDetails) {
 
         enterOriginCity(travel.sourceCity)
 

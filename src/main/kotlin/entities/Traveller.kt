@@ -1,6 +1,6 @@
 package entities
 
-public class TravellerTitleNameMobile(title: String,firstName: String, lastName: String, mobile: String) {
+public class Traveller(title: String, firstName: String, lastName: String, mobile: String) {
 
     var title:String = title
     var firstName: String = firstName

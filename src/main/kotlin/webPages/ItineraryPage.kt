@@ -1,6 +1,6 @@
 package webPage
 
-import entities.TravellerDetails
+import entities.TravelDetails
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
@@ -38,7 +38,7 @@ public class ItineraryPage(private val driver: WebDriver) {
 
     }
 
-    fun isItineraryDetailCorrect(travel: TravellerDetails): Boolean {
+    fun isItineraryDetailCorrect(travel: TravelDetails): Boolean {
 
         val actual = getOriginToSourceFlightInfo()
 

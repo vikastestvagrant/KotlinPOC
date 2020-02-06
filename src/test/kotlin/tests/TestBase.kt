@@ -17,7 +17,7 @@ abstract class TestBase {
      public lateinit var options: ChromeOptions
 
     @BeforeTest
-    fun testSetUp() {
+    open fun testSetUp() {
 
 
         val fis = FileInputStream("src/main/resources/config.properties")

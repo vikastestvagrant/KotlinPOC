@@ -1,6 +1,6 @@
 package tests
 
-import entities.TravellerDetails
+import entities.TravelDetails
 import org.testng.Assert
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
@@ -28,7 +28,7 @@ class VerifyInformationOnItineraryPageTest : TestBase() {
     @Test()
     fun verifyItineraryPageDetails() {
 
-        val travel = TravellerDetails("Bangalore", "Lucknow", "14/02/2020")
+        val travel = TravelDetails("Bangalore", "Lucknow", "14/02/2020")
 
         ticketsBookingPage.searchFlight(travel)
 
