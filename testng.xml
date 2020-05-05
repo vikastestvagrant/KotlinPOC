@@ -25,7 +25,7 @@
     <test thread-count="5" name="Verify Traveller Name Phone number Test">
         <classes>
 
-            <class name="tests.VerifyTravellerNamePhoneNumberTest"></class>
+            <class name="tests.VerifyTravellerDetailsTest"></class>
         </classes>
     </test> <!-- Test -->
 

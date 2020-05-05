@@ -12,7 +12,7 @@ import webPage.TicketsBookingPage
 import webPages.EmailPage
 import webPages.TravellerDetailsPage
 
-public class VerifyTravellerNamePhoneNumberTest: TestBase() {
+public class VerifyTravellerDetailsTest: TestBase() {
 
 
      lateinit var emailPage : EmailPage
